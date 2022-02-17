@@ -34,10 +34,8 @@ class _LocationScreenState extends State<LocationScreen> {
         country = '';
         return;
       } else {
-        //double temp = weatherData['main']['temp'];
         double temp = pick(weatherData, 'main', 'temp').asDoubleOrThrow();
         temperature = temp.toInt();
-        //var condition = weatherData['weather'][0]['id'];
         var condition = pick(weatherData, 'weather', 0, 'id').asIntOrThrow();
         weatherIcon = weatherModel.getWeatherIcon(condition);
         messageText = weatherModel.getMessage(temperature);
